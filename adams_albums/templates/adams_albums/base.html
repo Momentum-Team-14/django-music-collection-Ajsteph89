@@ -9,6 +9,11 @@
     </head>
     <body>
         <header>Adam's Albums</header>
+            {% if user.is_authenticated %}
+                <a href="{% url 'album_new' %}" class="top-menu">
+                    {% include './icons/file-earmark-plus.svg' %}
+                </a>
+            {% endif %}
         <main class="container">
             <div class="row">
                 <div class="col">

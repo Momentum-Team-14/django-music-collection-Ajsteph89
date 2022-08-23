@@ -1,6 +1,13 @@
 {% extends 'adams_albums/base.html' %}
 
-
 {% block content %}
     <h1>{{ album }}</h1>
+    <aside class="actions">
+        {% if user.is_authenticated %}
+            <a class="btn btn-secondary" href="{% url 'album_edit' pk=album.pk %}">
+            {% include './icons/pencil-fill.svg' %}
+            </a>
+        {% endif %}
+    </aside>
+    
 {% endblock %}
