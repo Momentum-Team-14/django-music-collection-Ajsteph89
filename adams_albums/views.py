@@ -21,21 +21,26 @@ def album_new(request):
             album.author = request.user
             album.created_at = timezone.now()
             album.save()
-            return redirect('album_detail', pk=album.pk)
+            return redirect('album_list')
     else:
         form = AlbumForm()
     return render(request, 'adams_albums/album_edit.html', {'form': form})
 
 def album_edit(request, pk):
-    post = get_object_or_404(Album, pk=pk)
+    album = get_object_or_404(Album, pk=pk)
     if request.method == "POST":
-        form = AlbumForm(request.POST, instance=post)
+        form = AlbumForm(request.POST, instance=album)
         if form.is_valid():
             album = form.save(commit=False)
             album.author = request.user
             album.created_at = timezone.now()
             album.save()
-            return redirect('album_detail', pk=album.pk)
+            return redirect('album_list')
     else:
-        form = AlbumForm(instance=post)
+        form = AlbumForm(instance=album)
     return render(request, 'adams_albums/album_edit.html', {'form': form})
+
+def delete_album(request, pk):
+    album = get_object_or_404(Album, pk=pk)
+    album.delete()
+    return redirect('album_list')

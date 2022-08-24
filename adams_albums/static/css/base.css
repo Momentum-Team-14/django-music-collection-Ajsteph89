@@ -1,7 +1,12 @@
-header {
-    font-size: x-large;
+body {
+    background-color: aquamarine;
+    text-align: center;
 }
 
-h1 a, h2 a {
-    color: #C25100;
+header {
+    font-size: xx-large;
+    color: blue;
+    text-align: center;
 }
+
+
