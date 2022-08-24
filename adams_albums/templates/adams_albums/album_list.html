@@ -1,6 +1,7 @@
 {% extends 'adams_albums/base.html' %}
 
 {% block content %}
+    <div class = 'tagLine'>Check out this list of totally rad albums:</div>
     {% for album in albums %}
         <article class = "album-card">
             <a href="{% url 'album_detail' pk=album.pk %}">{{ album.title }}</a>

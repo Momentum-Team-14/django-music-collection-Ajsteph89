@@ -1,11 +1,12 @@
 {% extends 'adams_albums/base.html' %}
 
 {% block content %}
-    
-    <p>Album: {{ album.title }}</p>
-        <p>Artist: {{ album.artist }}</p>
-        <p>Listing created: {{ album.created_at }}</p>
-    <aside class="actions">
+    <div class = 'albumDetails'>
+        <div>Album: {{ album.title }}</div>
+        <div>Artist: {{ album.artist }}</div>
+        <div class = 'listDate'>Listing created: {{ album.created_at }}</div>
+    </div>
+    <aside class='actions'>
         {% if user.is_authenticated %}
             <a href="{% url 'album_edit' pk=album.pk %}">Edit</a>
             <a href="{% url 'delete_album' pk=album.pk %}">Delete</a>

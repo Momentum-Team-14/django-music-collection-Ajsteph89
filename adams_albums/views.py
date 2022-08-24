@@ -18,8 +18,6 @@ def album_new(request):
         form = AlbumForm(request.POST)
         if form.is_valid():
             album = form.save(commit=False)
-            album.author = request.user
-            album.created_at = timezone.now()
             album.save()
             return redirect('album_list')
     else:
@@ -32,8 +30,6 @@ def album_edit(request, pk):
         form = AlbumForm(request.POST, instance=album)
         if form.is_valid():
             album = form.save(commit=False)
-            album.author = request.user
-            album.created_at = timezone.now()
             album.save()
             return redirect('album_list')
     else:

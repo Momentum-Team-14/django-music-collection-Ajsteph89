@@ -5,8 +5,23 @@ body {
 
 header {
     font-size: xx-large;
-    color: blue;
+    color: aquamarine;
     text-align: center;
+    background-color: black;
 }
 
+.navButtons {
+    padding: 2rem;
+}
 
+.albumDetails {
+    padding-bottom: 2rem;
+}
+
+.listDate {
+    padding-top: 1rem;
+}
+
+.tagLine {
+    padding-bottom: 1rem;
+}
